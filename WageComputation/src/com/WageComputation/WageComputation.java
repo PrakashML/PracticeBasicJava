@@ -1,33 +1,25 @@
 package com.WageComputation;
 
 public class WageComputation {
-    public static final int is_part_time = 1;
-    public static final int is_full_time = 2;
-    public static final int emp_rate_per_hour = 20;
-    public static final int num_of_working_days = 20;
-    public static final int max_hrs_in_month = 100;
-
     public static void main(String[] args) {
+        int is_full_time = 2;
+        int is_part_time = 1;
+        int emp_rate_per_hour = 20;
+        int empHrs = 0;
+        int empWage = 0;
 
-        int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-        while (totalEmpHrs <= max_hrs_in_month && totalWorkingDays < num_of_working_days) {
-            totalWorkingDays++;
-            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-            switch (empCheck) {
-                case is_part_time:
-                    empHrs = 4;
-                    break;
-                case is_full_time:
-                    empHrs = 8;
-                    break;
-                default:
-                    empHrs = 0;
-            }
-            totalEmpHrs += empHrs;
-            System.out.println("Day#: " + totalWorkingDays + " Emp hr: " + empHrs);
+        double empCheck = Math.floor(Math.random() * 10) % 3;
+        if (empCheck == is_part_time){
+            empHrs = 4;
         }
-        int totalEmpWage = totalEmpHrs * emp_rate_per_hour;
-        System.out.println("Total Emp Wage: " + totalEmpWage);
-    }
+        else if (empCheck == is_full_time){
+            empHrs = 8;
+        }
+        else {
+            empHrs = 0;
+        }
+        empWage = empHrs * emp_rate_per_hour;
+        System.out.println("Emp Wage: " + empWage);
 
+    }
 }
